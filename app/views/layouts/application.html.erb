@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body>
     <nav>
       <!-- we used these link_to_if statements that will replace the link with another, if the condition is satisfied- it's probably easier to just use ruby if-statements -->
       <%= link_to_if(!logged_in?, "Register!", new_user_path) do %>
@@ -18,7 +19,7 @@
       <% end %>
     </nav>
 
-  <body>
+    <%= render 'errors' %>
     <%= yield %>
   </body>
 </html>

@@ -9,15 +9,10 @@ describe UsersController do
       expect(response).to have_http_status 200
     end
 
-    # it "assigns the correct game as @game" do
-    #   get :show, { id: game.id }
-    #   expect(assigns(:game)).to eq(game)
-    # end
-
-    # it "renders the :show template" do
-    #   get :show, { id: game.id }
-    #   expect(response).to render_template(:show)
-    # end
+    it "renders the :show template" do
+      get :show, { id: user.id }
+      expect(response).to render_template(:show)
+    end
   end
 
 #   describe "GET #new" do

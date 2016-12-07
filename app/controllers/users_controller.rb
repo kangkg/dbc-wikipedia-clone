@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params_hash = params.require(:user).permit(:username, :password)
+    params_hash[:role] = 'user'
+    params_hash
   end
 end

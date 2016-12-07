@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 describe UsersController do
-  let!(:user) { User.create!(username: "hello-man", password: "hello") }
+  let!(:user) { User.create!(username: "hello-man", password: "hello", role: 'user') }
 
   describe "GET #show" do
     it "responds with status code 200" do
-      get :show, { id: user.id }
+      get :show, params: { id: user.id }
       expect(response).to have_http_status 200
     end
 
     it "renders the :show template" do
-      get :show, { id: user.id }
+      get :show, params: { id: user.id }
       expect(response).to render_template(:show)
     end
   end

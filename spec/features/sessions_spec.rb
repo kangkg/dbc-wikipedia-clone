@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user can login and logout' do
   scenario 'user can login' do
-    User.create(username: 'piepie123', password: 'piepie123')
+    User.create(username: 'piepie123', password: 'piepie123', role: 'user')
     visit root_path
 
     click_on "Login!"
@@ -13,7 +13,7 @@ feature 'user can login and logout' do
   end
 
   scenario 'user can logout' do
-    User.create(username: 'piepie123', password: 'piepie123')
+    User.create(username: 'piepie123', password: 'piepie123', role: 'user')
     visit root_path
 
     click_on "Login!"

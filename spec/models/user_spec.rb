@@ -8,6 +8,7 @@ describe User do
       expect(user.invalid?).to be_truthy
       user.username = 'hello'
       user.password = 'password'
+      user.role = 'user'
       expect(user.invalid?).to be_falsey
     end
   end

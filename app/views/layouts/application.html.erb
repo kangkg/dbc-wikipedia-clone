@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DbcWikipediaClone</title>
+    <title>DBC Wikipedia Clone</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <nav>
+      <!-- we used these link_to_if statements that will replace the link with another, if the condition is satisfied- it's probably easier to just use ruby if-statements -->
+      <%= link_to_if(!logged_in?, "Register!", new_user_path) do %>
+        <%=  current_user.username%>
+        <% end %>
+
+      <%= link_to_if(!logged_in?, "Login!", new_session_path) do %>
+        <%= link_to "Logout!", logout_path, method: 'delete' %>
+      <% end %>
+    </nav>
 
   <body>
     <%= yield %>

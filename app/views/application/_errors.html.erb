@@ -1,0 +1,6 @@
+<% if @errors %>
+  <h3> Errors </h3>
+  <% @errors.each do |error| %>
+    <p> <%= error %> </p>
+  <% end %>
+<% end %>

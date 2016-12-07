@@ -1,0 +1,9 @@
+<h2> MAKE A NEW USER!!!! </h2>
+
+<%= render "errors" %>
+
+<%= form_for :user, url: {action: "create"} do |f| %>
+  <%= f.text_field(:username, placeholder: "Username") %> <br>
+  <%= f.password_field(:password, placeholder: "Password") %> <br>
+  <%= submit_tag("Submit") %>
+<% end %>

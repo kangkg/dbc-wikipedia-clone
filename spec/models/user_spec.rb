@@ -11,12 +11,5 @@ describe User do
       expect(user.invalid?).to be_falsey
     end
   end
-  describe "associations" do
-    it 'user has favorites' do
-      expect(user.favorites).to be_a(ActiveRecord::Associations::CollectionProxy)
-    end
-    it 'user has songs' do
-      expect(user.songs).to be_a(ActiveRecord::Associations::CollectionProxy)
-    end
-  end
+
 end

@@ -1,0 +1,9 @@
+<h2> Categories </h2>
+<br>
+
+<ul>
+  <% @categories.try('each') do |category| %>
+    <!-- we need to change this to a link later. -->
+    <li><%= category.name %> </li>
+  <% end %>
+</ul>

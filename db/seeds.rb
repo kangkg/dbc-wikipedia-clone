@@ -56,7 +56,7 @@ Revision.create(editor_id: 4,article_id: 5,body: "Spotify is a Swedish music, po
 Revision.create(editor_id: 5, article_id: 6, body: "An empanada (Spanish pronunciation: [empaˈnaða]) is a stuffed bread or pastry baked or fried in many countries in Spain and Latin America. The name comes from the Spanish verb empanar, meaning to wrap or coat in bread.")
 Revision.create(editor_id: 5, article_id: 7, body: "Shortcake is a sweet cake or biscuit (in the American sense: that is, a crumbly bread that has been leavened with baking powder or baking soda).")
 # --------------------------------------------------------------
-# seed the links table 
+# seed the links table
 Link.create(word: "Jay Chou",article_id: 1)
 Link.create(word: "Ruby on Rails",article_id: 2)
 Link.create(word: "Coffee",article_id: 3)

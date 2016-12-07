@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :author, class_name: "User"
+  has_many :revisions
 
   after_initialize :set_default_values
 

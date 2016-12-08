@@ -23,6 +23,11 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @author = @article.author.username
+    @last_revision = @article.revisions.last
+    if @article.status == "unpublished"
+      render :file => 'public/403.html', :status => 403, :layout => false
+    end
   end
 
   def destroy

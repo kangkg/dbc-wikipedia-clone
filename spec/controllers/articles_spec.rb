@@ -3,6 +3,7 @@ require 'rails_helper'
 describe ArticlesController do
   let!(:user) { User.create(username: 'a', password: 'b', role: 'user') }
   let!(:article) { Article.create!(title: "Article", author_id: user.id, status: "published") }
+  let(:unpublished_article) { Article.create!(title: "unpub-arty", author_id: user.id, status: "unpublished") }
 
   describe "GET #show" do
     it "responds with status code 200" do
@@ -13,6 +14,11 @@ describe ArticlesController do
     it "renders the :show template" do
       get :show, params: { id: article.id }
       expect(response).to render_template(:show)
+    end
+
+    it "renders the 403 page for unpublished pages" do
+      get :show, params: { id: unpublished_article.id }
+      expect(response).to have_http_status 403
     end
   end
 

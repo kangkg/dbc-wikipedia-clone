@@ -14,6 +14,7 @@ Users can create and edit other articles. A revision history for each article ca
 ### How to install and run this project locally:
 
 This project uses ruby 2.2.2p95, and Rails 5.0.0.1
+
 In your terminal:
 
 1. `git clone https://github.com/kangkg/dbc-wikipedia-clone.git`

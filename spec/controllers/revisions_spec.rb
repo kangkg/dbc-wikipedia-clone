@@ -41,6 +41,19 @@ describe RevisionsController do
     end
   end
 
+  describe "GET #show" do
+    it "responds with status code 200" do
+      get :show, params: { article_id: article.id, id: revision.id }
+      expect(response).to have_http_status 200
+    end
+
+    it "renders the :show template" do
+      get :show, params: { article_id: article.id, id: revision.id }
+      expect(response).to render_template(:show)
+    end
+
+  end
+
   describe "POST #create" do
     context "when valid params are passed" do
       it "responds with status code 302" do

@@ -30,6 +30,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    p "hey"
+    @article = Article.find(params[:id])
+    # @article.featured = true
+    respond_to do |format|
+        format.js {render :layout => false}
+    end
+  end
+
   def destroy
     @article = Article.find(params[:id])
     if current_user && current_user.role == "admin"

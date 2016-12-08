@@ -11,6 +11,12 @@
           <%= link_to "Logout", logout_path, method: 'delete' %>
         <% end %>
       </li>
+    <li class="pipe-separate">
+      <form action="<%= articles_path %>" method="get" %>
+        <div class = "float-left"><%= text_field_tag :search %></div>
+        <div class = "submit-tag"><%= submit_tag "Search", :name => nil %> </div>
+      </form>
+    </li>
   </ul>
   </nav>
   <h1><%= link_to('DBCpedia', root_path) %></h1>

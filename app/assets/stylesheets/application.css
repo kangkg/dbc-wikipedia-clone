@@ -142,20 +142,13 @@ ul.tab li a:focus, .active {background-color: #ccc;}
   border: 1px solid black;
 }*/
 
-.bid-on-container{
-  margin: 20px auto;
-  width: 400px;
-  padding: 20px;
-  border: 1px solid black;
+.float-left {
   float: left;
 }
 
-.won-container{
-  margin: 20px auto;
-  width: 400px;
-  padding: 20px;
-  border: 1px solid black;
-  float: right;
+.submit-tag {
+  float: right ;
+  margin-left: 10px;
 }
 
 .user-page{

@@ -1,6 +1,9 @@
 class RevisionsController < ApplicationController
   def index
-    @revisions = Article.find(params[:article_id]).revisions
+    @article =  Article.find(params[:article_id])
+    @revisions =@article.revisions
+    @current_revision = @revisions.last
+    @original = @revisions.reverse.last
   end
 
   def new
@@ -29,7 +32,9 @@ class RevisionsController < ApplicationController
   end
 
   def show
-    @revision = Revision.find(params[:id])
+    @article = Article.find(params[:article_id])
+    @last_revision = Revision.find(params[:id])
+    render "/articles/show"
   end
 
   private

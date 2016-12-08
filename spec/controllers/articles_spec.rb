@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ArticlesController do
   let!(:user) { User.create(username: 'a', password: 'b', role: 'user') }
-  let!(:article) { Article.create!(title: "Article", author_id: user.id, status: "unpublished") }
+  let!(:article) { Article.create!(title: "Article", author_id: user.id, status: "published") }
 
   describe "GET #show" do
     it "responds with status code 200" do

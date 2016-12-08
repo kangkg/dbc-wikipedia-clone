@@ -1,1 +1,47 @@
 <h3><%= @user.username %>'s Profile</h3>
+
+
+<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Overview')" id="defaultOpen">Overview</a></li>
+  <% if @user.role == "admin" %>
+    <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Settings')">Settings</a></li>
+  <% end %>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Revisions')">Revisions</a></li>
+</ul>
+
+<div id="Overview" class="tabcontent">
+  <h3>Overview</h3>
+  <p>You have made <%= @user.revisions.count %> contributions.</p>
+</div>
+<% if @user.role != "user" %>
+  <div id="Settings" class="tabcontent">
+    <h3>Settings</h3>
+    <% @categories.each do |category| %>
+    <ul>
+      <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+    </ul>
+    <% end %>
+      <% if @user.role == "superadmin" %>
+        <% @users.each do |user| %>
+        <%= user.username %>
+        <% end %>
+      <% end %>
+  </div>
+<% end %>
+
+<div id="Revisions" class="tabcontent">
+  <h3>Revisions</h3>
+  <% if @user.revisions.count != 0 %>
+    <% @user.revisions.each do |revision| %>
+    <ul>
+      <li><a href="/articles/<%= revision.article.id %>"><%= revision.article.title %></a></li>
+    </ul>
+    <% end %>
+  <% else %>
+    <p>You have no contribution.</p>
+  <% end %>
+</div>
+<script>
+// Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+</script>

@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_many :revisions
   has_many :sorted_articles
   has_many :categories, through: :sorted_articles
+  has_many :link
 
   after_initialize :set_default_values
 

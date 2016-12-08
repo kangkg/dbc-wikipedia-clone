@@ -9,12 +9,16 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
-    if @category.save
-      redirect_to root_path
+    if current_user && (current_user.role == 'superadmin' || current_user.role == 'admin')
+      @category = Category.new(category_params)
+      if @category.save
+        redirect_to root_path
+      else
+        @errors = @category.errors.full_messages
+        render root_path
+      end
     else
-      @errors = @category.errors.full_messages
-      render root_path
+      redirect_to root_path
     end
   end
 
@@ -23,7 +27,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    #
+    # admin should be destroyed
   end
 
 end
+

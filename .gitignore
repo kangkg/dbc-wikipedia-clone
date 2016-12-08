@@ -18,3 +18,6 @@
 
 # To exclude our db
 database.yml
+
+# to exclude simplecov logs
+coverage

@@ -1,7 +1,5 @@
-<h2><%= @category.name %></h2>
-
 <ul id="categorys_articles" class = "no-bullets" >
-<% @category.articles.each do |article| %>
+<% category.articles.each do |article| %>
   <% if article.status == 'published' %>
   <li><%= link_to article.title, article_path(article) %></li>
   <% end %>

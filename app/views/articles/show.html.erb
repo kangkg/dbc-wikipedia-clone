@@ -1,13 +1,21 @@
 <div class="container">
   <!-- new_article_revision_path(@article.id) -->
-  <%= link_to_if(logged_in?, "Create Revision" ) { "Login to make revision" } %>
+  <%= link_to_if(logged_in?, "Create Revision", new_article_revision_path(@article) ) { "Login to make revision" } %>
 
   <% if current_user && current_user.role == "admin" %>
     <%= link_to 'Delete', @article, :method => :delete, :confirm => "Are you sure?" %>
   <% end %>
   <h2> <%=@article.title%> </h2>
+  <h4> original creator: <%=link_to(@article.author.username, @article.author)%>
   <hr>
-
+  <div = "article-body" >
+    <% if @last_revision %>
+      <p> <%= @last_revision.body %> </p>
+    <% else %>
+      <p> No revisions just yet. </p>
+    <% end %>
+  </div>
 </div>
 
+<!-- link to revision history and display last revision and add column about feature  -->
 

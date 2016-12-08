@@ -14,6 +14,16 @@
  *= require_self
  */
 
+html {
+  font-family: 'Reem Kufi', sans-serif;
+}
+
 .no-bullets {
   list-style: none;
+}
+
+.container {
+  margin: auto;
+  width: 75%;
+  padding: 0px 20px 20px 20px;
 }

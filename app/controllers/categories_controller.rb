@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
         redirect_to root_path
       else
         @errors = @category.errors.full_messages
-        render root_path
+        redirect_to root_path
       end
     else
       redirect_to root_path
@@ -28,6 +28,10 @@ class CategoriesController < ApplicationController
 
   def destroy
     # admin should be destroyed
+  end
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 
 end

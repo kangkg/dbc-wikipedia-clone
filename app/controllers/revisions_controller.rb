@@ -1,4 +1,8 @@
 class RevisionsController < ApplicationController
+  def index
+    @revisions = Article.find(params[:article_id]).revisions
+  end
+
   def new
     article = Article.find(params[:article_id])
     if !article.revisions.empty?
@@ -7,15 +11,15 @@ class RevisionsController < ApplicationController
   end
 
   def create
-    article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
 
     @revision = Revision.new(revision_params)
     @revision.editor_id = current_user.id
-    @revision.article_id = article.id
-    @revision.previous_revision_id = article.revisions.ids.last
+    @revision.article_id = @article.id
+    @revision.previous_revision_id = @article.revisions.ids.last
 
     if @revision.save
-      redirect_to @revision.article
+      redirect_to @article
     else
       @errors = @revision.errors.full_messages
       render "new"

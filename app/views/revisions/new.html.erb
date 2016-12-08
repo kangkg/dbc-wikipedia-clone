@@ -1,9 +1,12 @@
 <h2> MAKE A NEW REVISION!!!! </h2>
 
 <%= render "errors" %>
-<%= @hello if @hello %>
 <%= form_for :revision, url: {action: "create"} do |f| %>
-  <%body = @previous_revision.body || ''%>
+  <%if @previous_revision%>
+    <%body = @previous_revision.body%>
+  <%else%>
+    <%body = ''%>
+  <%end%>
   <%= f.text_area(:body, value: body) %> <br>
   <%= submit_tag("Submit") %>
 <% end %>

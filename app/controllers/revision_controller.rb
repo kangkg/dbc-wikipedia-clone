@@ -1,0 +1,3 @@
+class RevisionController < ApplicationController
+
+end

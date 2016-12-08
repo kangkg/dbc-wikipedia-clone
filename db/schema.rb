@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20161207204032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "revisions", force: :cascade do |t|
+    t.integer  "editor_id",            null: false
+    t.integer  "article_id",           null: false
+    t.text     "body",                 null: false
+    t.integer  "previous_revision_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false

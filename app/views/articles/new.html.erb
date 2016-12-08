@@ -1,0 +1,6 @@
+<h2> Create a new article </h2>
+
+<%= form_for @article, url: {action: "create"} do |f| %>
+  <%= f.text_field(:title, placeholder: "Title") %>
+  <%= f.submit %>
+<% end %>

@@ -13,4 +13,12 @@ class Article < ApplicationRecord
   def set_default_values
     self.status ||= "unpublished"
   end
+
+  def self.search(search)
+    if search
+      where("title ILIKE ?", "%#{search}%")
+    else
+      all
+    end
+  end
 end

@@ -10,7 +10,7 @@ describe 'Sessions Features' do
       find('#sessions_username').set('piepie123')
       find('#sessions_password').set('piepie123')
       click_on "Submit"
-      expect(page).to have_content("Logout!")
+      expect(page).to have_content("Logout")
     end
 
     scenario 'user can logout' do
@@ -21,7 +21,7 @@ describe 'Sessions Features' do
       find('#sessions_username').set('piepie123')
       find('#sessions_password').set('piepie123')
       click_on "Submit"
-      click_on "Logout!"
+      click_on "Logout"
       expect(page).to have_content("Login")
     end
   end

@@ -1,3 +1,0 @@
-class RevisionController < ApplicationController
-
-end

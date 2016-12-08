@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161208163348) do
 
   create_table "links", force: :cascade do |t|
     t.string   "word",       null: false
+    t.integer  "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

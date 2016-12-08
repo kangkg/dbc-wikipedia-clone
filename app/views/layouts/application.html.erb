@@ -8,18 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav>
-      <!-- we used these link_to_if statements that will replace the link with another, if the condition is satisfied- it's probably easier to just use ruby if-statements -->
-      <%= link_to_if(!logged_in?, "Register!", new_user_path) do %>
-        <%= link_to current_user.username, user_path(current_user) %>
-      <% end %>
+    <%= render 'banner' %>
 
-      <%= link_to_if(!logged_in?, "Login!", new_session_path) do %>
-        <%= link_to "Logout!", logout_path, method: 'delete' %>
-      <% end %>
-    </nav>
-
-    <%= render 'errors' %>
-    <%= yield %>
+    <div class='container'>
+      <%= render 'errors' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

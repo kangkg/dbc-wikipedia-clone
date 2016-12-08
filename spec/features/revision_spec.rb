@@ -7,7 +7,7 @@ feature 'user can make revisions' do
 
   scenario 'user can get to the new revision page' do
     visit root_path
-    click_on "Login!"
+    click_on "Login"
     find('#sessions_username').set(user.username)
     find('#sessions_password').set('hello')
     click_on "Submit"

@@ -12,6 +12,9 @@
 
     <div class='container'>
       <%= render 'errors' %>
+      <div class="side-bar">
+        <%= render 'categories', categories: @side_bar_categories %>
+      <div>
       <%= yield %>
     </div>
   </body>

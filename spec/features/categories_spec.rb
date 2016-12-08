@@ -9,7 +9,7 @@ describe 'Categories Features' do
 
   feature 'user can browser categories' do
 
-    scenario 'click' do
+    xscenario 'click' do
       visit categories_path
       click_on category.name
       expect(page).to have_content category.name

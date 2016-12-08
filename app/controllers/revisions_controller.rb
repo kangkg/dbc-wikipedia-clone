@@ -5,12 +5,14 @@ class RevisionsController < ApplicationController
 
   def new
     article = Article.find(params[:article_id])
+    redirect_to article if !logged_in?
     if !article.revisions.empty?
       @previous_revision = article.revisions.last
     end
   end
 
   def create
+    redirect_to article if !logged_in?
     @article = Article.find(params[:article_id])
 
     @revision = Revision.new(revision_params)

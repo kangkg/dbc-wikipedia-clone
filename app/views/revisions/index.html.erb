@@ -1,5 +1,18 @@
 <h2> REVISIONS !!!</h2>
-
-<%= @revisions%>
-
-<!-- need to fix this view -->
+<%if !@revisions.empty?%>
+  <%if @revisions.length > 1%>
+    <% @revisions.reverse[0..-2].each do |rev|%>
+      <div>
+        (<%= link_to 'cur', article_revision_path(@article,@current_revision) %> | <%= link_to 'prev', article_revision_path(@article,rev.previous_revision) %>)
+        <%= link_to rev.created_at, article_revision_path(@article,rev) %>
+        <%= link_to rev.editor.username, user_path(rev.editor) %>
+        <%= rev.body.length %> characters
+      </div>
+    <%end%>
+  <%end%>
+  <div>
+    <%= link_to '(original)', article_revision_path(@article,@original) %>
+    <%= link_to @original.editor.username, user_path(@original.editor) %>
+    <%= @original.body.length %> characters
+  </div>
+<%end%>

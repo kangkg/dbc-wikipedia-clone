@@ -4,7 +4,7 @@
   <p>Login to Make an Article</p>
 <% end %>
 
-<ul class = "no-bullets" >
+<ul id="articles" class = "no-bullets" >
   <% @articles.each do |article| %>
     <% if article.status == 'published' %>
       <li><%= link_to article.title, article_path(article) %></li>

@@ -26,6 +26,7 @@ describe ArticlesController do
       get :new
       expect(response).to render_template(:new)
     end
+  end
 
   describe "POST #create" do
     before (:each) do
@@ -74,24 +75,35 @@ describe ArticlesController do
         expect(response).to render_template(:new)
       end
     end
-    end
-
-    describe "DELETE #destroy" do
-    it "responds with status code 302" do
-      delete :destroy, params: { id: article.id }
-      expect(response).to have_http_status 302
-    end
-
-    # add validation test to check if user is admin
-
-    it "destroys the requested article" do
-      expect { delete(:destroy, params: { id: article.id }) }.to change(Article, :count).by(-1)
-    end
-
-    it "redirects to the articles list" do
-      delete :destroy, params: { id: article.id }
-      expect(response).to redirect_to articles_path
-    end
   end
+
+  describe "DELETE #destroy" do
+    context "when the user has admin" do
+      before (:each) do
+        controller.session[:user_id] = user.id
+        controller.current_user.role = "admin"
+      end
+
+      it "responds with status code 302" do
+        delete :destroy, params: { id: article.id }
+        expect(response).to have_http_status 302
+      end
+
+      it "destroys the requested article" do
+        expect { delete(:destroy, params: { id: article.id }) }.to change(Article, :count).by(-1)
+      end
+
+      it "redirects to the articles list" do
+        delete :destroy, params: { id: article.id }
+        expect(response).to redirect_to articles_path
+      end
+    end
+
+    context "when a user doesn't have admin" do
+      it "doesn't destroy the requested article and is logged in" do
+        session[:user_id] = user.id
+        expect { delete(:destroy, params: { id: article.id }) }.to change(Article, :count).by(0)
+      end
+    end
   end
 end

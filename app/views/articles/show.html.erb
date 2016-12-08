@@ -1,7 +1,8 @@
 <div class="container">
-  <%= link_to_if(logged_in?, "Create Revision") %>
+  <!-- new_article_revision_path(@article.id) -->
+  <%= link_to_if(logged_in?, "Create Revision" ) { "Login to make revision" } %>
 
-  <% if current_user.role == "admin" %>
+  <% if current_user && current_user.role == "admin" %>
     <%= link_to 'Delete', @article, :method => :delete, :confirm => "Are you sure?" %>
   <% end %>
   <h2> <%=@article.title%> </h2>

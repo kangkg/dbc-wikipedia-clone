@@ -26,8 +26,13 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    Article.find(params[:id]).destroy
-    redirect_to articles_path
+    @article = Article.find(params[:id])
+    if current_user && current_user.role == "admin"
+      @article.destroy
+      redirect_to articles_path
+    else
+      redirect_to @article
+    end
   end
 
   private

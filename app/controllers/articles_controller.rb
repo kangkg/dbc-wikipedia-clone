@@ -9,13 +9,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    @article.author_id = current_user.id
-    if @article.save
-      redirect_to @article
-    else
-      @errors = @article.errors.full_messages
-      render "new"
+    if logged_in?
+      @article = Article.new(article_params)
+      @article.author_id = current_user.id
+      if @article.save
+        redirect_to @article
+      else
+        @errors = @article.errors.full_messages
+        render "new"
+      end
     end
   end
 

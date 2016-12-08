@@ -4,7 +4,7 @@ class Article < ApplicationRecord
 
   after_initialize :set_default_values
 
-  validates :status, :author_id, presence: true
+  validates :title, :status, :author_id, presence: true
   validates :status, inclusion: { in: %w(published unpublished) }
 
   def set_default_values

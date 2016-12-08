@@ -1,7 +1,15 @@
 require 'rails_helper'
 
-describe 'Category Spec' do
-  it "currently has no tests; it needs additional tests."
+describe Category do
+  let(:category) { Category.new }
 
-  it "has routes, but we don't know if we should even allow users to create/delete categories- perhaps only for admins?"
+  describe "validations" do
+    it 'has to have a name' do
+      expect(category.invalid?).to be_truthy
+      category.name = 'hello'
+      expect(category.valid?).to be_truthy
+    end
+  end
+
+  # missing tests for associations
 end

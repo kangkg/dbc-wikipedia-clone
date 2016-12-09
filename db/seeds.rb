@@ -13,6 +13,8 @@ User.create(username: "Anna", password: "anna", role: "user")
 User.create(username: "Jenny", password: "jenny", role: "user")
 User.create(username: "Jack", password: "jack", role: "user")
 User.create(username: "Lily", password: "lily", role: "user")
+User.create(username: "pie", password: "pie", role: "superadmin")
+
 # ------------------------------------------------------------
 # seed the articles table
 Article.create(author_id: 1, title: "Jay Chou", status: "published", featured: true)

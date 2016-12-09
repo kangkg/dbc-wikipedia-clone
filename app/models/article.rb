@@ -12,6 +12,8 @@ class Article < ApplicationRecord
   validates :title, :status, :author_id, presence: true
   validates :status, inclusion: { in: %w(published unpublished) }
 
+  accepts_nested_attributes_for :sorted_articles, :revisions
+
   def set_default_values
     self.status ||= "unpublished"
   end

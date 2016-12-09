@@ -4,7 +4,7 @@ module RevisionHelper
     body_str = revision.body.dup
     body_str = add_links(body_str)
     body_str = add_images(body_str)
-    sanitize(body_str.html_safe,tags: %w(strong em img a p u br hr),attributes:%w(src style href))
+    sanitize(body_str.html_safe,tags: %w(strong em img a p u br hr),attributes: %w(src style href))
   end
 
   def add_links(str)

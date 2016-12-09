@@ -2,10 +2,9 @@
 <% @category.articles.each do |article| %>
     <% if article.status == 'published'%>
       <li><%= link_to article.title, article_path(article) %></li>
-       <%= button_to "Mark as featured", article_path(article),remote: true, method: :patch%>
-    <% elsif article.status == 'unpublished' && (current_user.role == 'admin' || current_user.role == 'superadmin') %>
+    <% elsif logged_in? && article.status == 'unpublished' && (current_user.role == 'admin' || current_user.role == 'superadmin') %>
       <li><%= link_to article.title, article_path(article) %></li>
-      <%= button_to "Mark as featured", article_path(article),remote: true, method: :patch%>
     <% end %>
   <% end %>
 </ul>
+

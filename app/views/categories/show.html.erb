@@ -1,4 +1,4 @@
-<h2><% @category.name %></h2>
+<h2><%= @category.name %></h2>
 <ul id="categorys_articles" class = "no-bullets" >
 <% @category.articles.each do |article| %>
     <% if article.status == 'published'%>
@@ -8,4 +8,3 @@
     <% end %>
   <% end %>
 </ul>
-

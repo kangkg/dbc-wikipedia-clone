@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :welcome, only: [:index]
 
-  root to: "categories#index"
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :revisions
   end
 
-  resources :categories # not sure if we should allow routes for this.
+  resources :categories, only: [:new, :create, :show, :destroy]
+
+  root "welcome#index"
 
 
   delete '/logout' => 'sessions#destroy'

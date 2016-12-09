@@ -8,5 +8,8 @@ module ApplicationHelper
     current_user != nil
   end
 
+  def all_catagories
+    Category.all
+  end
 
 end

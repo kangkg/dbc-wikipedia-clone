@@ -9,7 +9,7 @@
 <h2> <%=@article.title%> </h2>
 <h4> original creator: <%=link_to(@article.author.username, @article.author)%>
 <div = "article-body" >
-  <% if @article.last_revision %>
+  <% if @last_revision %>
     <p> <%= body_with_links(@last_revision)%> </p>
   <% else %>
     <p> No revisions just yet. </p>

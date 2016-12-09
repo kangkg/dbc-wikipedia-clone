@@ -23,6 +23,7 @@ h2 {
   /*border-style: solid;*/
   border-bottom: thick solid lightblue;
   border-bottom-width: 2px;
+  margin-top:2px;
   /*box-shadow: 10px 5px 5px #888888;*/
 }
 
@@ -107,7 +108,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     border-top: none;
     -webkit-animation:fadeEffect 1s;
     animation: fadeEffect 1s;
@@ -123,7 +124,11 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 
 .header-banner{
   padding: 20px;
-  background-color: lightgrey;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.14+0,0+85 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.14) 0%,rgba(0,0,0,0) 85%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.14) 0%,rgba(0,0,0,0) 85%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 .pipe-separate {
@@ -187,10 +192,19 @@ ul.tab li a:focus, .active {background-color: #ccc;}
   text-align: left;
 }
 
+.margin-left {
+  margin-left: 5px;
+}
+
 #categories {
   padding-left: 20px;
 }
 .tabcontent{
   background-color: white;
 }
+
+.margin-top{
+  margin-top: 10px;
+}
+
 

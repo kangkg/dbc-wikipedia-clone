@@ -21,6 +21,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.role == 'user' ? @user.role = 'admin' : @user.role = 'user'
+    @user.save
+    respond_to do |format|
+        format.html { redirect_to @user }
+    end
+  end
+
   private
 
   def user_params

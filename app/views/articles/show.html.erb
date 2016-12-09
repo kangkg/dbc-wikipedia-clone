@@ -12,7 +12,7 @@
     <%= button_to "Clear featured", article_path(@article),remote: true, method: :patch %>
   <% end %>
 <% end %>
-<%= render "article_content" %>
+<%= render "/articles/article_content" %>
 
 
 <!-- link to revision history and display last revision and add column about feature  -->

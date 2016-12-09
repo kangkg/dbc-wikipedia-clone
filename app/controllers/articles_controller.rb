@@ -31,11 +31,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    p "hey"
     @article = Article.find(params[:id])
-    # @article.featured = true
+    @article.featured = !@article.featured
+    @article.save
     respond_to do |format|
-        format.js {render :layout => false}
+        format.html { redirect_to @article }
     end
   end
 

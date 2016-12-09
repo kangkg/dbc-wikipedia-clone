@@ -19,6 +19,12 @@
  *= require froala_style.min.css
  *= require font-awesome
  */
+h2 {
+  /*border-style: solid;*/
+  border-bottom: thick solid lightblue;
+  border-bottom-width: 2px;
+  /*box-shadow: 10px 5px 5px #888888;*/
+}
 
 html {
   font-family: 'Reem Kufi', sans-serif;

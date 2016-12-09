@@ -1,17 +1,26 @@
-
-
 <!-- new_article_revision_path(@article.id) -->
 <%= link_to_if(logged_in?, "Create Revision", new_article_revision_path(@article) ) { "Login to make revision" } %>
 <%= link_to 'Revisions', article_revisions_path(@article) %>
 
-<% if (current_user && current_user.role == "admin") || (current_user && current_user.role == "superadmin") %>
-  <%= link_to 'Delete', @article, :method => :delete, :confirm => "Are you sure?" %>
-  <% if !@article.featured %>
-    <%= button_to "Mark as featured", article_path(@article),remote: true, method: :patch %>
-  <% else %>
-    <%= button_to "Clear featured", article_path(@article),remote: true, method: :patch %>
+<div id="article-edit-bar">
+  <% if (current_user && current_user.role == "admin") || (current_user && current_user.role == "superadmin") %>
+    <%= link_to 'Delete', @article, :method => :delete, :confirm => "Are you sure?" %>
+    <% if !@article.featured %>
+      <%= button_to "Mark as featured", article_path(@article),remote: true, method: :patch, params: { button_action: 'feature' }  %>
+    <% else %>
+      <%= button_to "Clear featured", article_path(@article), remote: true, method: :patch, params: { button_action: 'feature' } %>
+    <% end %>
+
+    <% if @article.status == 'published' %>
+      <%= button_to "Un-Publish", article_path(@article),remote: true, method: :patch, params: { button_action: 'publish' }  %>
+    <% else %>
+      <%= button_to "Publish", article_path(@article),remote: true, method: :patch, params: { button_action: 'publish' }  %>
+    <% end %>
+
+
+
   <% end %>
-<% end %>
+</div>
 <%= render "article_content" %>
 
 

@@ -1,10 +1,18 @@
 <h2> <%=@article.title%> </h2>
-<h4> original creator: <%=link_to(@article.author.username, @article.author)%>
-<div = "article-body" >
-  <% if @last_revision %>
-    <p> <%= body_with_links(@last_revision)%> </p>
-  <% else %>
-    <p> No revisions just yet. </p>
-  <% end %>
-</div>
 
+<% if (@article.status == "unpublished") && (current_user.try('role') != 'superadmin') && (current_user != @article.author) %>
+
+  <p>This page is under construction!</p>
+
+<% else %>
+  <h4> Original Creator: <%=link_to(@article.author.username, @article.author)%>
+  <h4> Status: <%= @article.status %>
+  <div = "article-body" >
+    <% if @last_revision %>
+      <p> <%= body_with_links(@last_revision)%> </p>
+    <% else %>
+      <p> No revisions just yet. </p>
+    <% end %>
+  </div>
+
+<% end %>

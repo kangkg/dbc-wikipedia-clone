@@ -33,18 +33,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @author = @article.author.username
     @last_revision = @article.revisions.last
-    if @article.status == "unpublished" && current_user.try('role') == 'user' && current_user != @article.author
-      @article = nil
-      @errors = ['This page is under construction!']
-      render :show
-    end
   end
 
   # && ( current_user.try('role') == 'user' || current_user != @article.author)
 
   def update
     @article = Article.find(params[:id])
-    @article.featured = !@article.featured
+    if params[:button_action] == "feature"
+      @article.featured = !@article.featured
+    else
+      @article.status == 'published' ? @article.status = 'unpublished' : @article.status = 'published'
+    end
     @article.save
     respond_to do |format|
       format.html { redirect_to @article }

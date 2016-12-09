@@ -7,6 +7,8 @@ class Article < ApplicationRecord
 
   after_initialize :set_default_values
 
+  #can't add validation for featured due to test
+
   validates :title, :status, :author_id, presence: true
   validates :status, inclusion: { in: %w(published unpublished) }
 
@@ -20,5 +22,10 @@ class Article < ApplicationRecord
     else
       all
     end
+  end
+
+  def last_revision
+    # self.revisions.last.body
+    # can't add this due to other code
   end
 end

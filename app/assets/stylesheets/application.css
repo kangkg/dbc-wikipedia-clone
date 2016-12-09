@@ -30,6 +30,10 @@ html {
 
 body {
   max-width: 1500px;
+  background-image: url(wiki.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position:30% 0%;
 }
 
 /* */
@@ -158,3 +162,12 @@ ul.tab li a:focus, .active {background-color: #ccc;}
   display: inline;
 }
 
+#side-bar {
+  position: absolute;
+  left: 20px;
+  text-align: left;
+}
+
+#categories {
+  padding-left: 20px;
+}

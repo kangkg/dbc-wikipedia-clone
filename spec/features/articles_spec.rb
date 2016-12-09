@@ -15,6 +15,7 @@ feature 'articles' do
     expect(page).to have_current_path article_path(article)
   end
 
+
   xscenario 'user can create a new article if they are logged in' do
 
   end

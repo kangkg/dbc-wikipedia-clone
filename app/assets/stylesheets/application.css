@@ -14,6 +14,12 @@
  *= require_self
  */
 
+ /*
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
+ */
+
 html {
   font-family: 'Reem Kufi', sans-serif;
   -webkit-box-sizing: border-box;

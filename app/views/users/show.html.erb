@@ -16,14 +16,18 @@
 <% if @user.role != "user" %>
   <div id="Settings" class="tabcontent">
     <h3>Settings</h3>
+    <h4>All Categories</h4>
     <% @categories.each do |category| %>
     <ul>
       <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
     </ul>
     <% end %>
       <% if @user.role == "superadmin" %>
+      <h4>All Users</h4>
         <% @users.each do |user| %>
-        <%= user.username %>
+        <ul>
+          <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
+        </ul>
         <% end %>
       <% end %>
   </div>

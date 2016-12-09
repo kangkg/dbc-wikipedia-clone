@@ -16,6 +16,30 @@
 
 html {
   font-family: 'Reem Kufi', sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* This is for box-sizing normalization: */
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+body {
+  max-width: 1500px;
+}
+
+/* */
+label{
+  display: block;
+}
+
+input{
+  margin-bottom: 20px;
+  display: block;
 }
 
 .no-bullets {
@@ -27,3 +51,110 @@ html {
   width: 75%;
   padding: 0px 20px 20px 20px;
 }
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    -webkit-animation:fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+@-webkit-keyframes fadeEffect{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.header-banner{
+  padding: 20px;
+}
+
+.pipe-separate {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-right: 1px solid;
+  float: left;
+}
+
+  .pipe-separate:first-of-type {
+    padding-left: 0;
+  }
+
+  .pipe-separate:last-of-type {
+    padding-right: 0;
+    border-right: none;
+  }
+
+.nav-list{
+  list-style-type: none;
+  float: right;
+  padding-right: 30px;
+}
+
+.buttonlink{
+  background-color: white;
+  border: none;
+  padding: 0px 0px;
+  color: blue;
+  margin-bottom: 0px;
+  text-decoration: underline;
+}
+
+/*.container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 20px;
+  border: 1px solid black;
+}*/
+
+.float-left {
+  float: left;
+}
+
+.submit-tag {
+  float: right ;
+  margin-left: 10px;
+}
+
+.user-page{
+  padding: 30px;
+}
+.il{
+  display: inline;
+}
+

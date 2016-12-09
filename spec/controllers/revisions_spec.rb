@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe RevisionsController do
+  before (:each) do
+    controller.session[:user_id] = user.id
+  end
+
   let!(:user) { User.create!(username: "hello-man", password: "hello", role: 'user') }
 
   let!(:article) { Article.create!(author_id: user.id, status: "published", title: 'test_title') }
@@ -20,6 +24,7 @@ describe RevisionsController do
   end
 
   describe "GET #new" do
+
     it "responds with status code 200" do
       get :new, params: {article_id: article.id}
       expect(response).to have_http_status 200
@@ -36,11 +41,20 @@ describe RevisionsController do
     end
   end
 
-  describe "POST #create" do
-    before (:each) do
-      controller.session[:user_id] = user.id
+  describe "GET #show" do
+    it "responds with status code 200" do
+      get :show, params: { article_id: article.id, id: revision.id }
+      expect(response).to have_http_status 200
     end
 
+    it "renders the :show template" do
+      get :show, params: { article_id: article.id, id: revision.id }
+      expect(response).to render_template(:show)
+    end
+
+  end
+
+  describe "POST #create" do
     context "when valid params are passed" do
       it "responds with status code 302" do
         post :create,  params: {article_id: article.id, revision: {body:'test_body2'}}

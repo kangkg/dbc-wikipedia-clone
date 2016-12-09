@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+    @articles = Article.search(params[:search])
   end
 
   def new
@@ -27,6 +27,15 @@ class ArticlesController < ApplicationController
     @last_revision = @article.revisions.last
     if @article.status == "unpublished"
       render :file => 'public/403.html', :status => 403, :layout => false
+    end
+  end
+
+  def update
+    p "hey"
+    @article = Article.find(params[:id])
+    # @article.featured = true
+    respond_to do |format|
+        format.js {render :layout => false}
     end
   end
 

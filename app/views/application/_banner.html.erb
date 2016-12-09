@@ -1,0 +1,23 @@
+<header role="banner" class="header-banner">
+  <nav>
+    <ul class="nav-list">
+      <li class="pipe-separate">
+        <%= link_to_if(!logged_in?, "Register", new_user_path) do %>
+          <%= link_to current_user.username, user_path(current_user) %>
+        <% end %>
+      </li>
+      <li class="pipe-separate">
+        <%= link_to_if(!logged_in?, "Login", new_session_path) do %>
+          <%= link_to "Logout", logout_path, method: 'delete' %>
+        <% end %>
+      </li>
+    <li class="pipe-separate">
+      <form action="<%= articles_path %>" method="get" %>
+        <div class = "float-left"><%= text_field_tag :search %></div>
+        <div class = "submit-tag"><%= submit_tag "Search", :name => nil %> </div>
+      </form>
+    </li>
+  </ul>
+  </nav>
+  <h1><%= link_to('DBCpedia', root_path) %></h1>
+</header>

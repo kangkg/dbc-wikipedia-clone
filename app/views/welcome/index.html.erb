@@ -1,4 +1,4 @@
 <h2>Featured Article</h2>
 <h3><%=@featured_article.try('title')%></h3>
-<h3><%=@last_revision.try('body')%></h3>
+<h3><%=body_with_links_and_images(@last_revision)%></h3>
 

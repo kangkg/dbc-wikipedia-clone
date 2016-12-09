@@ -1,9 +1,5 @@
 <h2> Articles </h2>
 
-<%= link_to_if(logged_in?, "Make a New Article", new_article_path) do %>
-  <p>Login to Make an Article</p>
-<% end %>
-
 <ul id="articles" class = "no-bullets" >
   <% @articles.each do |article| %>
     <% if article.status == 'published' %>

@@ -30,10 +30,9 @@ html {
 
 body {
   max-width: 1500px;
-  background-image: url(wiki.png);
+  background-image: url(/images/wiki.png);
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position:30% 0%;
+  background-position:100% -120%;
 }
 
 /* */
@@ -51,9 +50,14 @@ input{
 }
 
 .container {
-  margin: auto;
-  width: 75%;
+  /*margin: auto;*/
+  width: 85%;
   padding: 0px 20px 20px 20px;
+  border-style: solid;
+  border-color: lightgrey;
+  float: right;
+  border-top: none;
+  background-color: white;
 }
 
 /* Style the list */
@@ -106,6 +110,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 
 .header-banner{
   padding: 20px;
+  background-color: lightgrey;
 }
 
 .pipe-separate {
@@ -115,14 +120,14 @@ ul.tab li a:focus, .active {background-color: #ccc;}
   float: left;
 }
 
-  .pipe-separate:first-of-type {
-    padding-left: 0;
-  }
+.pipe-separate:first-of-type {
+  padding-left: 0;
+}
 
-  .pipe-separate:last-of-type {
-    padding-right: 0;
-    border-right: none;
-  }
+.pipe-separate:last-of-type {
+  padding-right: 0;
+  border-right: none;
+}
 
 .nav-list{
   list-style-type: none;
@@ -165,6 +170,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 #side-bar {
   position: absolute;
   left: 20px;
+  width: 15%;
   text-align: left;
 }
 

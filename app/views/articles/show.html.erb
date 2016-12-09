@@ -4,7 +4,7 @@
 <%= link_to_if(logged_in?, "Create Revision", new_article_revision_path(@article) ) { "Login to make revision" } %>
 <%= link_to 'Revisions', article_revisions_path(@article) %>
 
-<% if current_user && current_user.role == "admin" %>
+<% if current_user && (current_user.role == "admin" || current_user.role == 'superadmin') %>
   <%= link_to 'Delete', @article, :method => :delete, :confirm => "Are you sure?" %>
   <% if !@article.featured %>
     <%= button_to "Mark as featured", article_path(@article),remote: true, method: :patch %>

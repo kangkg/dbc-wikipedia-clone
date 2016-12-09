@@ -1,6 +1,15 @@
-<h2> Create a new article </h2>
+<h2> New Page </h2>
 
-<%= form_for @article, url: {action: "create"} do |f| %>
-  <%= f.text_field(:title, placeholder: "Title") %>
-  <%= f.submit %>
+<%= form_for(@article, :url=>{:action=>'create'}, :html => {:multipart => true}) do |f| %>
+  <%= f.text_field :title, placeholder: 'Title' %>
+
+   <%= f.fields_for :category do |l| %>
+     <%=l.text_field :name, placeholder: 'Category' %>
+   <% end %>
+
+   <%= f.submit "Create Article" %>
 <% end %>
+
+
+<!-- should hide this form if not logged in. -->
+<!-- need to make category into a drop-down -->

@@ -1,4 +1,5 @@
 module RevisionHelper
+
   def body_with_links_and_images(revision)
     body_str = h(revision.body.dup)
     body_str = add_links(body_str)
@@ -19,4 +20,5 @@ module RevisionHelper
   def add_images(str)
     str.gsub(/\[img:\](\S*)\[:img\]/, '<img src="\1"style="width:400px;margin:20px;">')
   end
+
 end

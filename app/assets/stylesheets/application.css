@@ -44,7 +44,8 @@ body {
   max-width: 1500px;
   background-image: url(/images/wiki.png);
   background-repeat: no-repeat;
-  background-position:100% -120%;
+  background-position:100% 150%;
+  background-attachment: fixed;
 }
 
 /* */
@@ -189,3 +190,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 #categories {
   padding-left: 20px;
 }
+.tabcontent{
+  background-color: white;
+}
+

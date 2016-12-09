@@ -12,15 +12,21 @@ describe RevisionHelper do
 
   let!(:link) { Link.create!(word: 'Coffee', article_id: article.id) }
 
-  xit "removes dangerous text from being displayed as html" do
+  it "removes dangerous text from being displayed as html" do
     dangerous_str = '<script></script>'
     revision.body = dangerous_str
-    expect(body_with_links(revision)).to eq('&lt;script&gt;&lt;/script&gt;')
+    expect(body_with_links_and_images(revision)).to eq('')
   end
 
   it "returns text with keywords turned into links" do
     link = 'Coffee'
     revision.body = link
-    expect(body_with_links(revision)).to include('>Coffee</a>')
+    expect(body_with_links_and_images(revision)).to include('>Coffee</a>')
+  end
+
+  it "allows <strong></strong>, <em></em>, <img>, <a></a>, <p></p>, <u></u>, <br>, and <hr> tags" do
+    link = 'allows <strong></strong>, <em></em>, <img>, <a></a>, <p></p>, <u></u>, <br>, and <hr> tags'
+    revision.body = link
+    expect(body_with_links_and_images(revision)).to eq('allows <strong></strong>, <em></em>, <img>, <a></a>, <p></p>, <u></u>, <br>, and <hr> tags')
   end
 end

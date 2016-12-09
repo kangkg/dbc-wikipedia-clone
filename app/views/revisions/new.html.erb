@@ -2,9 +2,11 @@
 
 <%= render "errors" %>
 
+<p>Add image anchors around links to display images [img:]http://your.image.url[:img].</p>
+
 <%= form_for :revision, url: {action: "create"} do |f| %>
   <%if @previous_revision%>
-    <% #body = @previous_revision.body%>
+    <% body = @previous_revision.body%>
   <%else%>
     <% body = ''%>
   <%end%>

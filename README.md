@@ -1,8 +1,12 @@
 # dbc-wikipedia-clone
 
+http://dbc-wikipedia-clone.herokuapp.com/
+
+
 ### Description
 dbc-wikipedia-clone is a *revolutionary* way of posting, editing, and browsing articles. In addition, users can search by keyword for a specific article.
 Users can create and edit other articles. A revision history for each article can track their changes.
+
 
 ### Our Contributors
 
@@ -10,6 +14,7 @@ Users can create and edit other articles. A revision history for each article ca
 * Vince Roti (vinceroti)
 * Matthew Ramuta (mramuta)
 * Eraince Wang (eraince)
+
 
 ### How to install and run this project locally:
 

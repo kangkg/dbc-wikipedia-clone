@@ -15,13 +15,13 @@ User.create(username: "Jack", password: "jack", role: "user")
 User.create(username: "Lily", password: "lily", role: "user")
 # ------------------------------------------------------------
 # seed the articles table
-Article.create(author_id: 1, title: "Jay Chou", status: "published")
-Article.create(author_id: 1, title: "Ruby on Rails", status: "unpublished")
-Article.create(author_id: 2, title: "Coffee", status: "published")
-Article.create(author_id: 3, title: "Olympic Games",status: "unpublished")
-Article.create(author_id: 4, title: "Spotify", status: "unpublished")
-Article.create(author_id: 5, title: "Empanada",status: "published")
-Article.create(author_id: 5, title: "Shortcake",status: "unpublished")
+Article.create(author_id: 1, title: "Jay Chou", status: "published", featured: true)
+Article.create(author_id: 1, title: "Ruby on Rails", status: "unpublished", featured: false)
+Article.create(author_id: 2, title: "Coffee", status: "published", featured: false)
+Article.create(author_id: 3, title: "Olympic Games",status: "unpublished", featured: false)
+Article.create(author_id: 4, title: "Spotify", status: "unpublished", featured: false)
+Article.create(author_id: 5, title: "Empanada",status: "published", featured: false)
+Article.create(author_id: 5, title: "Shortcake",status: "unpublished", featured: false)
 # -------------------------------------------------------------
 # seed the categories table
 Category.create(name: "History")

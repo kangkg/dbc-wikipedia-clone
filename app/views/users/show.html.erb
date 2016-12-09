@@ -1,9 +1,16 @@
 <h3><%= @user.username %>'s Profile</h3>
+<% if current_user && current_user.role == "superadmin" && @user != current_user %>
 
+  <% if @user.role != "admin" %>
+    <%= button_to "Promote to Admin", user_path(@user),remote: true, method: :patch %>
+  <% else %>
+    <%= button_to "Depromote", user_path(@user),remote: true, method: :patch %>
+  <% end %>
+<% end %>
 
 <ul class="tab">
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Overview')" id="defaultOpen">Overview</a></li>
-  <% if @user.role == "admin" %>
+  <% if @user.role != "user" %>
     <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Settings')">Settings</a></li>
   <% end %>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Revisions')">Revisions</a></li>
@@ -11,19 +18,23 @@
 
 <div id="Overview" class="tabcontent">
   <h3>Overview</h3>
-  <p>You have made <%= @user.revisions.count %> contributions.</p>
+  <p><%= @user.revisions.count %> contributions.</p>
 </div>
 <% if @user.role != "user" %>
   <div id="Settings" class="tabcontent">
     <h3>Settings</h3>
+    <h4>All Categories</h4>
     <% @categories.each do |category| %>
     <ul>
       <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
     </ul>
     <% end %>
       <% if @user.role == "superadmin" %>
+      <h4>All Users</h4>
         <% @users.each do |user| %>
-        <%= user.username %>
+        <ul>
+          <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
+        </ul>
         <% end %>
       <% end %>
   </div>
@@ -38,7 +49,7 @@
     </ul>
     <% end %>
   <% else %>
-    <p>You have no contribution.</p>
+    <p>No contribution.</p>
   <% end %>
 </div>
 <script>

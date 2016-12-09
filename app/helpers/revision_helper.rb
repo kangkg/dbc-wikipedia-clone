@@ -16,6 +16,6 @@ module RevisionHelper
   end
 
   def add_images(str)
-    str.gsub(/\[img:\](\S*)\[:img\]/, '<img src="\1"style="width:600px;margin:20px;">')
+    str.gsub(/\[img:\](\S*)\s{1}\[:img\]/, '<img src="\1"style="width:600px;margin:20px;">')
   end
 end

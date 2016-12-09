@@ -1,6 +1,5 @@
 var ready = function() { $( function() {
     $('#edit').froalaEditor();
-    console.log("hi");
   });
 }
 

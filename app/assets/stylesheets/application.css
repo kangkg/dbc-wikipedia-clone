@@ -177,3 +177,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 #categories {
   padding-left: 20px;
 }
+.tabcontent{
+  background-color: white;
+}
+

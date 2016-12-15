@@ -30,3 +30,8 @@ In your terminal:
 6. `rails db:seed`
 7. `rails server`
 8. Outside of your terminal, navigate to `http://localhost:3000/` and you should see our site!
+
+
+### Current Functionality:
+
+You can register on this site, allowing you to create revisions and new pages. Pages that are not 'published' will not be publicly viewable, unless you are the author. Much of the website's functionality is somewhat hidden, as there are different user privilege-levels, such as 'admin' and 'superadmin.' You can login with the credentials: 'pie' and 'pie' to try out the additional 'superadmin' settings, such as being able to promote other users to 'admin', publish pages, or delete pages completely. 

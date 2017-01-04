@@ -35,3 +35,5 @@ In your terminal:
 ### Current Functionality:
 
 You can register on this site, allowing you to create revisions and new pages. Pages that are not 'published' will not be publicly viewable, unless you are the author. Much of the website's functionality is somewhat hidden, as there are different user privilege-levels, such as 'admin' and 'superadmin.' You can login with the credentials: 'pie' and 'pie' to try out the additional 'superadmin' settings, such as being able to promote other users to 'admin', publish pages, organize the featured-frontpage article, or delete pages completely. 
+
+Additionally, our site parses the web page and looks for any matching article names, automatically hyperlinking them to the article. So "Jay Chou" within an article turns itself into a hyperlink to his article! Our search functionality only searches for article names at the time however.
